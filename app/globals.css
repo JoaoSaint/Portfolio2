@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Ajustes globais opcionais */
+:root { color-scheme: dark; }
+.prose a { @apply underline underline-offset-4; }
+html { scroll-behavior: smooth; }
+body { @apply min-h-screen bg-neutral-950 text-neutral-100 antialiased; }
