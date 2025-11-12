@@ -1,31 +1,16 @@
-# Next.js Portfólio Starter (App Router + Tailwind) + Python opcional
 
-## Rodar local (frontend)
-pnpm install   # (ou npm install / yarn)
-pnpm dev       # abre em http://localhost:3000
+# Portfólio — Single Page + Projetos detalhados + Backend Python (opcional)
 
-### Prévia de produção local
-pnpm build
-pnpm start
+## Rodar frontend (Windows PowerShell)
+npm.cmd install
+npm.cmd run dev
+# abre em http://localhost:3000
 
-## Rodar backend Python (opcional)
+## Backend Python (opcional) — sem ativar venv (dribla política de scripts)
 cd backend-python
-pip install -r requirements.txt
-uvicorn main:app --reload --port 8000
+py -m venv .venv
+.\.venv\Scripts\python.exe -m pip install -r requirements.txt
+.\.venv\Scripts\python.exe -m uvicorn main:app --reload --port 8000
 
-O Next já faz proxy: requisições para `/api/py/*` vão para `http://localhost:8000/*` (veja `next.config.mjs`).
-
-## Onde editar
-- Páginas: `app/` (Home, Projects, About, Contact).
-- Componentes: `components/` (Navbar, Footer, ProjectCard, ContactForm).
-- Dados de projetos: `data/projects.ts`.
-- Estilos: `app/globals.css` + Tailwind.
-- Avatar: `public/avatar.jpg` (substitua pela sua foto).
-- Logo exemplo: `public/logos/sentinela.png`.
-
-## Variáveis de ambiente
-Copie `.env.local.example` para `.env.local` e ajuste quando for apontar para um backend externo.
-
-## Observações
-- Esse starter usa TypeScript e App Router.
-- Se não quiser o backend Python, basta ignorar `backend-python/` e remover o proxy ou não usá-lo.
+# Proxy já configurado: /api/py/* -> http://localhost:8000/*
+# Edite conteúdos em: app/page.tsx, data/*.ts, public/*

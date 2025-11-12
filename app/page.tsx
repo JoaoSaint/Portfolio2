@@ -1,30 +1,48 @@
+
 // app/page.tsx
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
-import Link from 'next/link'
-import Image from 'next/image'
+import Hero from '@/components/Hero'
+import Section from '@/components/Section'
+import SkillsGrid from '@/components/SkillsGrid'
+import ProjectsCarousel from '@/components/ProjectsCarousel'
+import { CareerTimeline, AcademicTimeline } from '@/components/Timeline'
+import ContactGrid from '@/components/ContactGrid'
 
 export default function Page() {
   return (
     <>
       <Navbar />
-      <main className="mx-auto max-w-5xl py-16">
-        <section className="grid items-center gap-8 md:grid-cols-[160px_1fr]">
-          <div className="relative h-40 w-40 overflow-hidden rounded-2xl border border-neutral-800">
-            <Image src="/avatar.bmp" alt="João" fill className="object-cover" />
-          </div>
-          <div>
-            <h1 className="text-3xl font-bold tracking-tight">João — Ciência de Dados</h1>
-            <p className="mt-3 text-neutral-300">
-              Construo soluções de dados e automações que reduzem atrito e ampliam impacto.
+      <Hero />
+      <Section id="sobre" title="Sobre mim">
+        <div className="space-y-5">
+          {/* CARD GRANDE — Intro Pessoal (linha inteira) */}
+          <div className="rounded-2xl border border-neutral-800 p-5">
+            <h3 className="text-lg font-semibold text-white">Intro pessoal</h3>
+            <p className="mt-2 text-sm text-neutral-300">
+              Breve apresentação: interesses, intenções, valores e como trabalho.
             </p>
-            <div className="mt-6 flex gap-3">
-              <Link href="/projects" className="rounded-xl bg-white px-4 py-2 text-neutral-900">Ver projetos</Link>
-              <Link href="/contact" className="rounded-xl border border-neutral-700 px-4 py-2">Contato</Link>
+          </div>
+
+          {/* LINHA DE BAIXO — dois cards lado a lado (metade cada em telas médias+) */}
+          <div className="grid gap-5 md:grid-cols-2">
+            <div className="rounded-2xl border border-neutral-800 p-5">
+              <h4 className="font-semibold text-white">Experiências de estudo</h4>
+              <p className="mt-2 text-sm text-neutral-300">Cursos, formações, certificações…</p>
+            </div>
+            <div className="rounded-2xl border border-neutral-800 p-5">
+              <h4 className="font-semibold text-white">Experiências profissionais</h4>
+              <p className="mt-2 text-sm text-neutral-300">Atuações, responsabilidades, conquistas…</p>
             </div>
           </div>
-        </section>
-      </main>
+        </div>
+      </Section>
+
+      <Section id="skills" title="Repertório"><SkillsGrid /></Section>
+      <Section id="projetos" title="Projetos"><ProjectsCarousel /></Section>
+      <Section id="timeline-prof" title="Trajetória Profissional"><CareerTimeline /></Section>
+      <Section id="timeline-edu" title="Trajetória Acadêmica"><AcademicTimeline /></Section>
+      <Section id="contatos" title="Contatos"><ContactGrid /></Section>
       <Footer />
     </>
   )

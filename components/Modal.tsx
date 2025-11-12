@@ -1,0 +1,50 @@
+// components/Modal.tsx
+'use client'
+import { useEffect } from 'react'
+
+export default function Modal({
+  open,
+  onClose,
+  title,
+  children,
+}: {
+  open: boolean
+  onClose: () => void
+  title?: string
+  children?: React.ReactNode
+}) {
+  useEffect(() => {
+    function onEsc(e: KeyboardEvent) {
+      if (e.key === 'Escape') onClose()
+    }
+    if (open) document.addEventListener('keydown', onEsc)
+    return () => document.removeEventListener('keydown', onEsc)
+  }, [open, onClose])
+
+  if (!open) return null
+  return (
+    <div className="fixed inset-0 z-[100] grid place-items-center">
+      {/* backdrop */}
+      <button
+        aria-label="Fechar"
+        onClick={onClose}
+        className="absolute inset-0 bg-black/60"
+      />
+      {/* dialog */}
+      <div className="relative z-[101] w-[min(720px,92vw)] rounded-2xl border border-neutral-800 bg-neutral-950 p-6 shadow-xl">
+        {title && <h3 className="text-xl font-semibold text-white">{title}</h3>}
+        <div className="prose prose-invert mt-4 max-w-none text-sm">
+          {children}
+        </div>
+        <div className="mt-6 flex justify-end">
+          <button
+            onClick={onClose}
+            className="rounded-xl border border-neutral-700 px-3 py-1.5 text-sm hover:bg-neutral-900/60"
+          >
+            Fechar
+          </button>
+        </div>
+      </div>
+    </div>
+  )
+}
