@@ -7,7 +7,7 @@ import DraggableX from '@/components/DraggableX'
 
 function DateChip({ children }: { children: React.ReactNode }) {
   return (
-    <span className="inline-block rounded-full border border-neutral-800 bg-neutral-950 px-2 py-0.5 text-xs text-neutral-300">
+    <span className="inline-block rounded-full bg-surface-2/70 px-3 py-1 text-xs font-medium text-neutral-100 shadow-card-inner ring-1 ring-white/5">
       {children}
     </span>
   )
@@ -25,7 +25,7 @@ const CLAMP    = 4             // nº de linhas da descrição
 /* Pílula (data) – no eixo da linha */
 function Pill({ children }: { children: React.ReactNode }) {
   return (
-    <span className="inline-block rounded-full border border-neutral-700 bg-neutral-950 px-2 py-0.5 text-xs text-neutral-300">
+    <span className="inline-block rounded-full bg-surface-2/80 px-3 py-1 text-xs font-medium text-neutral-100 shadow-card-inner ring-1 ring-white/10">
       {children}
     </span>
   )
@@ -45,12 +45,14 @@ function TimelineCard({
 }) {
   return (
     <button type="button" onClick={() => onClick?.(item)} className="group block w-full text-left">
-      <div className={`flex ${heightClass} flex-col rounded-2xl border border-neutral-800 p-4 transition hover:border-neutral-700 hover:bg-neutral-900/40`}>
-        <h4 className="font-semibold text-white">{item.title}</h4>
+      <div
+        className={`flex ${heightClass} flex-col rounded-3xl bg-card-sheen p-5 text-neutral-200 shadow-card-inner ring-1 ring-white/5 transition group-hover:ring-brand/40`}
+      >
+        <h4 className="font-semibold text-white group-hover:text-brand">{item.title}</h4>
 
         {item.description && (
           <p
-            className="mt-1 text-sm text-neutral-300"
+            className="mt-2 text-sm"
             style={{
               display: '-webkit-box',
               WebkitLineClamp: clamp,
@@ -63,7 +65,7 @@ function TimelineCard({
         )}
 
         {item.bullets && item.bullets.length > 0 && (
-          <ul className="mt-2 list-disc pl-5 text-xs text-neutral-400">
+          <ul className="mt-2 list-disc pl-5 text-xs text-neutral-300">
             {item.bullets.map((b, i) => (<li key={i}>{b}</li>))}
           </ul>
         )}
@@ -72,7 +74,7 @@ function TimelineCard({
           {item.tags && (
             <div className="flex flex-wrap gap-2">
               {item.tags.map((t) => (
-                <span key={t} className="rounded-full border border-neutral-700 px-2 py-0.5 text-xs text-neutral-300">
+                <span key={t} className="rounded-full bg-surface-3/80 px-2 py-0.5 text-xs text-neutral-100">
                   {t}
                 </span>
               ))}
@@ -141,9 +143,9 @@ export function AcademicTimeline() {
   return (
     <>
       <DraggableX className="no-scrollbar pr-6">
-        <div className="relative flex gap-6 py-2">
+        <div className="relative flex gap-6 py-6">
           {/* Linha central */}
-          <div className="pointer-events-none absolute left-0 right-0 top-1/2 z-0 h-px -translate-y-1/2 bg-neutral-800" />
+          <div className="pointer-events-none absolute left-0 right-0 top-1/2 z-0 h-px -translate-y-1/2 bg-surface-3/80" />
 
           {academic.map((it) => (
             <div key={it.id} className={`relative z-10 shrink-0 ${W_ACAD}`}>
