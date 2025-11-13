@@ -1,19 +1,12 @@
-
 // components/Navbar.tsx
 'use client'
 
+import { Suspense } from 'react'
 import Link from 'next/link'
 import { useTheme } from '@/components/theme-provider'
-
-const links = [
-  { href: '#inicio', label: 'Início' },
-  { href: '#sobre', label: 'Sobre' },
-  { href: '#skills', label: 'Repertório' },
-  { href: '#projetos', label: 'Projetos' },
-  { href: '#timeline-prof', label: 'Carreira' },
-  { href: '#timeline-edu', label: 'Acadêmico' },
-  { href: '#contatos', label: 'Contatos' },
-]
+import LanguageSwitcher from '@/components/LanguageSwitcher'
+import { useLocaleContext } from '@/components/locale-provider'
+import type { Locale } from '@/lib/i18n/config'
 
 const icons = {
   sun: (
@@ -36,44 +29,55 @@ const icons = {
 
 export default function Navbar() {
   const { resolvedTheme, toggleTheme } = useTheme()
+  const { locale, dictionary } = useLocaleContext()
   const isDark = resolvedTheme === 'dark'
+
+  const languageOptions = Object.entries(dictionary.navbar.language.options).map(([value, label]) => ({
+    value: value as Locale,
+    label,
+  }))
 
   return (
     <header
       className="sticky top-0 z-50 border-b border-[var(--border-soft)] backdrop-blur supports-[backdrop-filter]:bg-transparent"
       style={{ background: 'var(--nav-gradient)' }}
     >
-      <nav className="mx-auto flex max-w-5xl items-center justify-between px-4 py-4">
+      <nav className="mx-auto flex max-w-5xl flex-wrap items-center justify-between gap-4 px-4 py-4">
         <Link
-          href="#inicio"
+          href={`/${locale}${dictionary.navbar.links[0]?.href ?? ''}`}
           className="text-lg font-semibold tracking-tight text-text-primary transition hover:text-brand focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand/60"
         >
-          João
+          {dictionary.navbar.brand}
         </Link>
         <ul className="flex flex-wrap items-center gap-4 text-sm text-text-muted">
-          {links.map((l) => (
+          {dictionary.navbar.links.map((l) => (
             <li key={l.href}>
-              <a
-                href={l.href}
+              <Link
+                href={`/${locale}${l.href}`}
                 className="rounded px-2 py-1 transition hover:text-text-primary focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand/60"
               >
                 {l.label}
-              </a>
+              </Link>
             </li>
           ))}
         </ul>
-        <button
-          type="button"
-          onClick={toggleTheme}
-          aria-label="Alternar tema"
-          aria-pressed={isDark}
-          className="ml-4 inline-flex items-center gap-2 rounded-full border border-[var(--border-soft)] bg-[var(--control-bg)] px-3 py-1.5 text-xs font-medium text-text-muted transition hover:bg-[var(--control-bg-hover)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand/60"
-        >
-          {isDark ? icons.moon : icons.sun}
-          <span aria-hidden className="hidden sm:inline text-xs">
-            {isDark ? 'Modo escuro' : 'Modo claro'}
-          </span>
-        </button>
+        <div className="flex items-center gap-3">
+          <Suspense fallback={null}>
+            <LanguageSwitcher label={dictionary.navbar.language.label} options={languageOptions} />
+          </Suspense>
+          <button
+            type="button"
+            onClick={toggleTheme}
+            aria-label={dictionary.navbar.themeToggle.ariaLabel}
+            aria-pressed={isDark}
+            className="inline-flex items-center gap-2 rounded-full border border-[var(--border-soft)] bg-[var(--control-bg)] px-3 py-1.5 text-xs font-medium text-text-muted transition hover:bg-[var(--control-bg-hover)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand/60"
+          >
+            {isDark ? icons.moon : icons.sun}
+            <span aria-hidden className="hidden text-xs sm:inline">
+              {isDark ? dictionary.navbar.themeToggle.dark : dictionary.navbar.themeToggle.light}
+            </span>
+          </button>
+        </div>
       </nav>
     </header>
   )
