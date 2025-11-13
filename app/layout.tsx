@@ -2,6 +2,7 @@
 // app/layout.tsx
 import type { Metadata } from 'next'
 import './globals.css'
+import { ThemeProvider } from '@/components/theme-provider'
 
 export const metadata: Metadata = {
   title: { default: 'João — Portfólio', template: '%s · João' },
@@ -12,6 +13,12 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="pt-BR" className="scroll-smooth"><body><div className="mx-auto max-w-5xl px-4">{children}</div></body></html>
+    <html lang="pt-BR" suppressHydrationWarning className="scroll-smooth">
+      <body className="bg-[var(--page-bg)] text-text-primary transition-colors duration-300">
+        <ThemeProvider>
+          <div className="mx-auto max-w-5xl px-4">{children}</div>
+        </ThemeProvider>
+      </body>
+    </html>
   )
 }

@@ -28,18 +28,19 @@ export default function Modal({
       <button
         aria-label="Fechar"
         onClick={onClose}
-        className="absolute inset-0 bg-black/60"
+        className="absolute inset-0"
+        style={{ background: 'var(--modal-backdrop)' }}
       />
       {/* dialog */}
-      <div className="relative z-[101] w-[min(720px,92vw)] rounded-2xl border border-neutral-800 bg-neutral-950 p-6 shadow-xl">
-        {title && <h3 className="text-xl font-semibold text-white">{title}</h3>}
-        <div className="prose prose-invert mt-4 max-w-none text-sm">
+      <div className="relative z-[101] w-[min(720px,92vw)] rounded-2xl border border-[var(--modal-border)] bg-[var(--modal-bg)] p-6 shadow-xl">
+        {title && <h3 className="text-xl font-semibold text-text-primary">{title}</h3>}
+        <div className="prose mt-4 max-w-none text-sm dark:prose-invert">
           {children}
         </div>
         <div className="mt-6 flex justify-end">
           <button
             onClick={onClose}
-            className="rounded-xl border border-neutral-700 px-3 py-1.5 text-sm hover:bg-neutral-900/60"
+            className="rounded-xl border border-[var(--border-soft)] px-3 py-1.5 text-sm text-text-muted transition hover:bg-[var(--control-bg)]"
           >
             Fechar
           </button>

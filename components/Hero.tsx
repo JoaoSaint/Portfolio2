@@ -6,14 +6,14 @@ import Link from 'next/link'
 export default function Hero() {
   return (
     <section id="inicio" className="mx-auto max-w-5xl px-4 py-16">
-      <div className="overflow-hidden rounded-3xl bg-hero-glow p-10 shadow-card-inner ring-1 ring-white/10 md:p-12">
+      <div className="overflow-hidden rounded-3xl bg-hero-glow p-10 shadow-card-inner ring-1 ring-[var(--border-soft)] md:p-12">
         <div className="grid items-center gap-10 md:grid-cols-[minmax(0,1fr)_260px]">
           <div>
-            <span className="inline-flex items-center rounded-full bg-surface-2/70 px-3 py-1 text-xs font-medium uppercase tracking-[0.3em] text-brand shadow-card-inner ring-1 ring-white/5">
+            <span className="inline-flex items-center rounded-full bg-surface-2/70 px-3 py-1 text-xs font-medium uppercase tracking-[0.3em] text-brand shadow-card-inner ring-1 ring-[var(--border-soft)]">
               Ciência de Dados &amp; Automação
             </span>
-            <h1 className="mt-6 text-4xl font-bold tracking-tight text-white md:text-5xl">João — Ciência de Dados</h1>
-            <p className="mt-4 max-w-xl text-base text-neutral-200 md:text-lg">
+            <h1 className="mt-6 text-4xl font-bold tracking-tight text-text-primary md:text-5xl">João — Ciência de Dados</h1>
+            <p className="mt-4 max-w-xl text-base text-text-muted md:text-lg">
               Soluções de dados e automações com foco em impacto mensurável e narrativas claras que aproximam pessoas e tecnologia.
             </p>
             <div className="mt-8 flex flex-wrap items-center gap-4">
@@ -25,13 +25,13 @@ export default function Hero() {
               </Link>
               <Link
                 href="#contatos"
-                className="rounded-full px-6 py-2.5 text-sm font-semibold text-neutral-200 transition hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand/60"
+                className="rounded-full px-6 py-2.5 text-sm font-semibold text-text-muted transition hover:text-text-primary focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand/60"
               >
                 Fale comigo
               </Link>
             </div>
           </div>
-          <div className="relative mx-auto h-64 w-64 overflow-hidden rounded-3xl bg-surface-2/70 shadow-card-inner ring-1 ring-white/10">
+          <div className="relative mx-auto h-64 w-64 overflow-hidden rounded-3xl bg-surface-2/70 shadow-card-inner ring-1 ring-[var(--border-soft)]">
             <Image src="/avatar.bmp" alt="João" fill className="object-cover" />
           </div>
         </div>
