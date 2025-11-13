@@ -23,7 +23,7 @@ export default function ProjectCard({ slug, title, description, tools = [], href
   return (
     <Wrapper
       {...wrapperProps}
-      className="group block h-full rounded-2xl border border-neutral-800 p-5 transition hover:border-neutral-700 hover:bg-neutral-900/40"
+      className="group block h-full rounded-2xl border border-[var(--border-soft)] bg-surface-1/70 p-5 transition hover:border-[var(--border-strong)] hover:bg-surface-2/60"
     >
       <div className="flex h-full flex-col gap-3">
         <div className="flex items-start gap-4">
@@ -33,21 +33,21 @@ export default function ProjectCard({ slug, title, description, tools = [], href
               alt="logo"
               width={48}
               height={48}
-              className="rounded-lg border border-neutral-800"
+              className="rounded-lg border border-[var(--border-soft)]"
             />
           ) : (
-            <div className="grid h-12 w-12 place-content-center rounded-lg border border-neutral-800 text-xs text-neutral-400">
+            <div className="grid h-12 w-12 place-content-center rounded-lg border border-[var(--border-soft)] text-xs text-text-muted">
               LOGO
             </div>
           )}
-          <h3 className="text-lg font-semibold text-white group-hover:underline group-hover:underline-offset-4">
+          <h3 className="text-lg font-semibold text-text-primary group-hover:text-brand group-hover:underline group-hover:underline-offset-4">
             {title}
           </h3>
         </div>
 
         {/* Descrição com clamp de 2 linhas (sem plugin) */}
         <p
-          className="text-sm text-neutral-300"
+          className="text-sm text-text-muted"
           style={{
             display: '-webkit-box',
             WebkitLineClamp: 2,
@@ -61,9 +61,9 @@ export default function ProjectCard({ slug, title, description, tools = [], href
         {/* Empurra as tags para a base para padronizar a altura */}
         <div className="mt-auto">
           {tools.length > 0 && (
-            <ul className="flex flex-wrap gap-2 text-xs text-neutral-400">
+            <ul className="flex flex-wrap gap-2 text-xs text-text-muted">
               {tools.map((t) => (
-                <li key={t} className="rounded-full border border-neutral-800 px-2 py-1">
+                <li key={t} className="rounded-full border border-[var(--border-soft)] px-2 py-1">
                   {t}
                 </li>
               ))}

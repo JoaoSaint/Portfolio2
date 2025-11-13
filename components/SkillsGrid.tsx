@@ -15,12 +15,12 @@ export default function SkillsGrid() {
   return (
     <div className="grid gap-5 md:grid-cols-2">
       {skills.map((cat) => (
-        <div key={cat.title} className="rounded-3xl bg-card-sheen p-6 shadow-card-inner ring-1 ring-white/5">
-          <h3 className="text-lg font-semibold text-white">{cat.title}</h3>
+        <div key={cat.title} className="rounded-3xl bg-card-sheen p-6 shadow-card-inner ring-1 ring-[var(--border-soft)]">
+          <h3 className="text-lg font-semibold text-text-primary">{cat.title}</h3>
           <ul className="mt-4 space-y-4">
             {cat.items.map((s) => (
-              <li key={s.name} className="grid grid-cols-[140px_1fr] items-center gap-4 text-sm text-neutral-200">
-                <span className="truncate text-neutral-200">{s.name}</span>
+              <li key={s.name} className="grid grid-cols-[140px_1fr] items-center gap-4 text-sm text-text-muted">
+                <span className="truncate text-text-muted">{s.name}</span>
                 <LevelBar level={s.level} />
               </li>
             ))}

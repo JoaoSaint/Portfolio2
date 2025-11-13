@@ -12,8 +12,18 @@ export default function ProjectsCarousel() {
   return (
     <div className="relative">
       <div className="flex items-center justify-end gap-2 pb-2">
-        <button onClick={() => scrollDir(-320)} className="rounded-lg border border-neutral-700 px-3 py-1">◀</button>
-        <button onClick={() => scrollDir(320)} className="rounded-lg border border-neutral-700 px-3 py-1">▶</button>
+        <button
+          onClick={() => scrollDir(-320)}
+          className="rounded-lg border border-[var(--border-soft)] bg-[var(--control-bg)] px-3 py-1 text-text-muted transition hover:bg-[var(--control-bg-hover)]"
+        >
+          ◀
+        </button>
+        <button
+          onClick={() => scrollDir(320)}
+          className="rounded-lg border border-[var(--border-soft)] bg-[var(--control-bg)] px-3 py-1 text-text-muted transition hover:bg-[var(--control-bg-hover)]"
+        >
+          ▶
+        </button>
       </div>
 
       <div ref={ref} className="flex snap-x snap-mandatory gap-5 overflow-x-auto pb-2">
