@@ -1,6 +1,7 @@
 // components/ProjectCard.tsx
 import Image from 'next/image'
 import Link from 'next/link'
+import type { Locale } from '@/lib/i18n/config'
 
 interface ProjectProps {
   slug?: string
@@ -9,10 +10,11 @@ interface ProjectProps {
   tools?: string[]
   href?: string
   logo?: string
+  locale: Locale
 }
 
-export default function ProjectCard({ slug, title, description, tools = [], href, logo }: ProjectProps) {
-  const internal = slug ? `/projects/${slug}` : undefined
+export default function ProjectCard({ slug, title, description, tools = [], href, logo, locale }: ProjectProps) {
+  const internal = slug ? `/${locale}/projects/${slug}` : undefined
   const url = internal || href || '#'
   const isExternal = !internal && url.startsWith('http')
   const Wrapper: any = isExternal ? 'a' : Link
@@ -30,7 +32,7 @@ export default function ProjectCard({ slug, title, description, tools = [], href
           {logo ? (
             <Image
               src={logo}
-              alt="logo"
+              alt={`${title} logo`}
               width={48}
               height={48}
               className="rounded-lg border border-[var(--border-soft)]"
@@ -45,7 +47,6 @@ export default function ProjectCard({ slug, title, description, tools = [], href
           </h3>
         </div>
 
-        {/* Descrição com clamp de 2 linhas (sem plugin) */}
         <p
           className="text-sm text-text-muted"
           style={{
@@ -58,7 +59,6 @@ export default function ProjectCard({ slug, title, description, tools = [], href
           {description}
         </p>
 
-        {/* Empurra as tags para a base para padronizar a altura */}
         <div className="mt-auto">
           {tools.length > 0 && (
             <ul className="flex flex-wrap gap-2 text-xs text-text-muted">

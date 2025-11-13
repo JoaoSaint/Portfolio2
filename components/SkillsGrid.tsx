@@ -1,6 +1,5 @@
-
 // components/SkillsGrid.tsx
-import { skills } from '@/data/skills'
+import type { SkillCategory } from '@/lib/i18n/content-types'
 
 function LevelBar({ level }: { level: 1 | 2 | 3 | 4 | 5 }) {
   const pct = level * 20
@@ -11,10 +10,11 @@ function LevelBar({ level }: { level: 1 | 2 | 3 | 4 | 5 }) {
     </div>
   )
 }
-export default function SkillsGrid() {
+
+export default function SkillsGrid({ categories }: { categories: SkillCategory[] }) {
   return (
     <div className="grid gap-5 md:grid-cols-2">
-      {skills.map((cat) => (
+      {categories.map((cat) => (
         <div key={cat.title} className="rounded-3xl bg-card-sheen p-6 shadow-card-inner ring-1 ring-[var(--border-soft)]">
           <h3 className="text-lg font-semibold text-text-primary">{cat.title}</h3>
           <ul className="mt-4 space-y-4">
