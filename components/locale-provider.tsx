@@ -2,11 +2,11 @@
 
 import { createContext, useContext, useMemo } from 'react'
 import type { Locale } from '@/lib/i18n/config'
-import type { Translation } from '@/locales/types'
+import type { ClientTranslation } from '@/locales/types'
 
 interface LocaleContextValue {
   locale: Locale
-  dictionary: Translation
+  dictionary: ClientTranslation
 }
 
 const LocaleContext = createContext<LocaleContextValue | undefined>(undefined)
@@ -17,7 +17,7 @@ export function LocaleProvider({
   children,
 }: {
   locale: Locale
-  dictionary: Translation
+  dictionary: ClientTranslation
   children: React.ReactNode
 }) {
   const value = useMemo(() => ({ locale, dictionary }), [locale, dictionary])

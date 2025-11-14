@@ -15,8 +15,8 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   if (!isLocale(locale)) {
     notFound()
   }
-  const dictionary = getDictionary(locale as Locale)
-  return dictionary.metadata
+  const { metadata } = getDictionary(locale as Locale)
+  return metadata
 }
 
 export default async function LocaleLayout({
@@ -31,14 +31,15 @@ export default async function LocaleLayout({
     notFound()
   }
   const typedLocale = locale as Locale
-  const dictionary = getDictionary(typedLocale)
+  const { metadata: _metadata, ...clientDictionary } = getDictionary(typedLocale)
+  void _metadata
   const lang = typedLocale === 'pt' ? 'pt-BR' : 'en'
 
   return (
     <html lang={lang} suppressHydrationWarning className="scroll-smooth">
       <body className="bg-[var(--page-bg)] text-text-primary transition-colors duration-300">
         <ThemeProvider>
-          <LocaleProvider locale={typedLocale} dictionary={dictionary}>
+          <LocaleProvider locale={typedLocale} dictionary={clientDictionary}>
             <div className="mx-auto max-w-5xl px-4">{children}</div>
           </LocaleProvider>
         </ThemeProvider>

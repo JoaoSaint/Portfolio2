@@ -64,3 +64,5 @@ export interface Translation {
     notFoundTitle: string
   }
 }
+
+export type ClientTranslation = Omit<Translation, 'metadata'>
