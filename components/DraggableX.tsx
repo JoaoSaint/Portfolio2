@@ -1,13 +1,15 @@
 // components/DraggableX.tsx
 'use client'
-import { useRef, useState, useCallback } from 'react'
+import { useRef, useState, useCallback, type ReactNode, type UIEvent } from 'react'
 
 export default function DraggableX({
   className = '',
   children,
+  onScroll,
 }: {
   className?: string
-  children: React.ReactNode
+  children: ReactNode
+  onScroll?: (event: UIEvent<HTMLDivElement>) => void
 }) {
   const ref = useRef<HTMLDivElement>(null)
   const state = useRef({ active: false, startX: 0, scrollLeft: 0, moved: false })
@@ -37,6 +39,9 @@ export default function DraggableX({
     <div
       ref={ref}
       className={`no-scrollbar overflow-x-auto overflow-y-visible select-none ${grabbing ? 'cursor-grabbing' : 'cursor-grab'} ${className}`}
+      onScroll={(event) => {
+        onScroll?.(event)
+      }}
       onMouseDown={(e) => down(e.pageX)}
       onMouseMove={(e) => state.current.active && move(e.pageX)}
       onMouseUp={up}
