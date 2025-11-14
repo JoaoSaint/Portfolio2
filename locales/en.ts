@@ -32,8 +32,8 @@ const en: Translation = {
     language: {
       label: 'Language',
       options: {
-        pt: 'Português',
-        en: 'English',
+        pt: 'PT-BR',
+        en: 'EN-US',
       },
     },
   },
