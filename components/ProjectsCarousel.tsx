@@ -131,29 +131,29 @@ export default function ProjectsCarousel({
       </div>
 
       <div className="relative">
-        <DraggableX onScroll={handleScroll} className="flex snap-x snap-mandatory gap-5 pb-3 pr-4">
+        <DraggableX onScroll={handleScroll} className="flex snap-x snap-mandatory gap-6 pb-4 pr-4">
           {projects.map((p, index) => {
             const statusLabel = dictionary.projectStatusLabels[p.status]
 
             return (
-            <div
-              key={`${p.slug}-${locale}`}
-              id={`${baseId}-card-${index}`}
-              data-project-index={index}
-              className="h-[240px] w-[300px] shrink-0 snap-start"
-            >
-              <ProjectCard
-                slug={p.slug}
-                title={p.title}
-                description={p.description}
-                tools={p.tools}
-                href={p.href}
-                logo={p.logo}
-                status={p.status}
-                statusLabel={statusLabel}
-                locale={locale}
-              />
-            </div>
+              <div
+                key={`${p.slug}-${locale}`}
+                id={`${baseId}-card-${index}`}
+                data-project-index={index}
+                className="h-[420px] w-[390px] shrink-0 snap-start"
+              >
+                <ProjectCard
+                  slug={p.slug}
+                  title={p.title}
+                  description={p.description}
+                  tools={p.tools}
+                  href={p.href}
+                  logo={p.logo}
+                  status={p.status}
+                  statusLabel={statusLabel}
+                  locale={locale}
+                />
+              </div>
             )
           })}
         </DraggableX>
