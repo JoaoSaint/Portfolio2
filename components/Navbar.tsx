@@ -1,7 +1,7 @@
 // components/Navbar.tsx
 'use client'
 
-import { Suspense } from 'react'
+import { Suspense, useEffect, useState } from 'react'
 import Link from 'next/link'
 import { useTheme } from '@/components/theme-provider'
 import LanguageSwitcher from '@/components/LanguageSwitcher'
@@ -30,7 +30,16 @@ const icons = {
 export default function Navbar() {
   const { resolvedTheme, toggleTheme } = useTheme()
   const { locale, dictionary } = useLocaleContext()
-  const isDark = resolvedTheme === 'dark'
+  const [mounted, setMounted] = useState(false)
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
+
+  const isDark = mounted ? resolvedTheme === 'dark' : false
+  const buttonLabel = isDark
+    ? dictionary.navbar.themeToggle.dark
+    : dictionary.navbar.themeToggle.light
 
   const languageOptions = Object.entries(dictionary.navbar.language.options).map(([value, label]) => ({
     value: value as Locale,
@@ -74,7 +83,7 @@ export default function Navbar() {
           >
             {isDark ? icons.moon : icons.sun}
             <span aria-hidden className="hidden text-xs sm:inline">
-              {isDark ? dictionary.navbar.themeToggle.dark : dictionary.navbar.themeToggle.light}
+              {buttonLabel}
             </span>
           </button>
         </div>
