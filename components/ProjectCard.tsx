@@ -47,7 +47,7 @@ export default function ProjectCard({
   return (
     <Wrapper
       {...wrapperProps}
-      className="group relative block h-full rounded-2xl border border-[var(--border-soft)] bg-surface-1/70 p-5 pt-8 transition hover:border-[var(--border-strong)] hover:bg-surface-2/60"
+      className="group relative block h-full overflow-hidden rounded-2xl border border-[var(--border-soft)] bg-surface-1/70 p-5 pt-8 transition hover:border-[var(--border-strong)] hover:bg-surface-2/60"
     >
       <span
         className={`absolute right-3 top-3 inline-flex items-center rounded-full border px-2 py-0.5 text-[11px] font-medium pointer-events-none ${
