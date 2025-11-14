@@ -55,7 +55,7 @@ export default function Navbar() {
       className="sticky top-0 z-50 border-b border-[var(--border-soft)] backdrop-blur supports-[backdrop-filter]:bg-transparent"
       style={{ background: 'var(--nav-gradient)' }}
     >
-      <nav className="mx-auto flex max-w-5xl flex-wrap items-center justify-between gap-4 px-4 py-4">
+      <nav className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-4 px-4 py-4 lg:px-8 xl:max-w-7xl">
         <Link
           href={`/${locale}${dictionary.navbar.links[0]?.href ?? ''}`}
           className="text-lg font-semibold tracking-tight text-text-primary transition hover:text-brand focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand/60"

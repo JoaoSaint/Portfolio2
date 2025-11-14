@@ -15,9 +15,9 @@ interface HeroProps {
 
 export default function Hero({ content }: HeroProps) {
   return (
-    <section id="inicio" className="mx-auto max-w-5xl px-4 py-16">
+    <section id="inicio" className="mx-auto max-w-6xl px-4 py-16 lg:px-8 xl:max-w-7xl">
       <div className="overflow-hidden rounded-3xl bg-hero-glow p-10 shadow-card-inner ring-1 ring-[var(--border-soft)] md:p-12">
-        <div className="grid items-center gap-10 md:grid-cols-[minmax(0,1fr)_260px]">
+        <div className="grid items-center gap-10 md:grid-cols-[minmax(0,1fr)_280px] lg:grid-cols-[minmax(0,1fr)_320px]">
           <div>
             <span className="inline-flex items-center rounded-full bg-surface-2/70 px-3 py-1 text-xs font-medium uppercase tracking-[0.3em] text-brand shadow-card-inner ring-1 ring-[var(--border-soft)]">
               {content.badge}
@@ -39,7 +39,7 @@ export default function Hero({ content }: HeroProps) {
               </Link>
             </div>
           </div>
-          <div className="relative mx-auto h-64 w-64 overflow-hidden rounded-3xl bg-surface-2/70 shadow-card-inner ring-1 ring-[var(--border-soft)]">
+          <div className="relative mx-auto h-64 w-64 overflow-hidden rounded-3xl bg-surface-2/70 shadow-card-inner ring-1 ring-[var(--border-soft)] lg:h-72 lg:w-72">
             <Image src="/avatar.bmp" alt={content.imageAlt} fill className="object-cover" />
           </div>
         </div>

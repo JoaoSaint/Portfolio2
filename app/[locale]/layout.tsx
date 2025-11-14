@@ -40,7 +40,7 @@ export default async function LocaleLayout({
       <body className="bg-[var(--page-bg)] text-text-primary transition-colors duration-300">
         <ThemeProvider>
           <LocaleProvider locale={typedLocale} dictionary={clientDictionary}>
-            <div className="mx-auto max-w-5xl px-4">{children}</div>
+            <div className="mx-auto max-w-6xl px-4 lg:px-8 xl:max-w-7xl">{children}</div>
           </LocaleProvider>
         </ThemeProvider>
       </body>
