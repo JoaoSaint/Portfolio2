@@ -9,9 +9,9 @@
   --brand-foreground: 15 14 23;
   --accent: 44 182 125;
 
-  --surface-1-rgb: 247 245 255;
-  --surface-2-rgb: 234 238 252;
-  --surface-3-rgb: 220 226 246;
+  --surface-1-rgb: 232 229 248;
+  --surface-2-rgb: 220 224 242;
+  --surface-3-rgb: 206 212 236;
   --mist-rgb: 134 99 247;
 
   --text-primary: 15 23 42;
@@ -19,30 +19,30 @@
   --text-inverted: 248 250 252;
   --chip-text: 67 56 202;
 
-  --border-soft-rgb: 131 146 189;
-  --border-strong-rgb: 82 96 138;
-  --border-soft: rgba(131, 146, 189, 0.42);
-  --border-strong: rgba(82, 96, 138, 0.58);
+  --border-soft-rgb: 118 108 208;
+  --border-strong-rgb: 92 80 182;
+  --border-soft: rgba(118, 108, 208, 0.52);
+  --border-strong: rgba(92, 80, 182, 0.68);
 
-  --hero-glow: radial-gradient(circle at 20% 20%, rgba(127, 90, 240, 0.18), transparent 55%),
-    radial-gradient(circle at 80% 0%, rgba(44, 182, 125, 0.14), transparent 55%),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.9), rgba(241, 245, 249, 1));
-  --card-sheen: linear-gradient(135deg, rgba(127, 90, 240, 0.12), rgba(148, 163, 184, 0.16));
-  --section-gradient: linear-gradient(180deg, rgba(248, 250, 252, 0.8), rgba(226, 232, 240, 0.65));
-  --shadow-brand: 0 24px 80px -40px rgba(127, 90, 240, 0.25);
-  --shadow-card-inner: inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  --hero-glow: radial-gradient(circle at 20% 20%, rgba(127, 90, 240, 0.22), transparent 55%),
+    radial-gradient(circle at 80% 0%, rgba(44, 182, 125, 0.16), transparent 55%),
+    linear-gradient(180deg, rgba(244, 246, 255, 0.85), rgba(214, 219, 239, 0.95));
+  --card-sheen: linear-gradient(135deg, rgba(127, 90, 240, 0.16), rgba(118, 134, 180, 0.2));
+  --section-gradient: linear-gradient(180deg, rgba(229, 233, 247, 0.78), rgba(204, 210, 234, 0.72));
+  --shadow-brand: 0 24px 80px -40px rgba(92, 80, 182, 0.32);
+  --shadow-card-inner: inset 0 1px 0 rgba(255, 255, 255, 0.45);
 
-  --page-bg: #eef1ff;
-  --page-gradient: radial-gradient(circle at 20% 20%, rgba(134, 99, 247, 0.24), transparent 55%),
-    radial-gradient(circle at 75% 0%, rgba(54, 159, 182, 0.18), transparent 55%),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(234, 238, 252, 1));
-  --nav-gradient: linear-gradient(90deg, rgba(255, 255, 255, 0.92), rgba(248, 250, 252, 0.78), rgba(255, 255, 255, 0.92));
-  --footer-gradient: linear-gradient(90deg, rgba(241, 245, 249, 0.9), rgba(248, 250, 252, 0.92), rgba(241, 245, 249, 0.9));
-  --timeline-line: rgba(148, 163, 184, 0.35);
+  --page-bg: #d7d3eb;
+  --page-gradient: radial-gradient(circle at 20% 20%, rgba(134, 99, 247, 0.28), transparent 60%),
+    radial-gradient(circle at 75% 0%, rgba(54, 159, 182, 0.2), transparent 55%),
+    linear-gradient(180deg, rgba(235, 238, 252, 0.9), rgba(209, 213, 233, 0.96));
+  --nav-gradient: linear-gradient(90deg, rgba(233, 236, 250, 0.9), rgba(217, 221, 239, 0.85), rgba(233, 236, 250, 0.9));
+  --footer-gradient: linear-gradient(90deg, rgba(222, 226, 244, 0.88), rgba(210, 214, 236, 0.9), rgba(222, 226, 244, 0.88));
+  --timeline-line: rgba(131, 140, 189, 0.42);
 
   --chip-bg: rgba(79, 70, 229, 0.1);
-  --control-bg: rgba(79, 70, 229, 0.08);
-  --control-bg-hover: rgba(79, 70, 229, 0.16);
+  --control-bg: rgba(79, 70, 229, 0.18);
+  --control-bg-hover: rgba(79, 70, 229, 0.28);
 
   --modal-bg: #ffffff;
   --modal-border: rgba(100, 116, 139, 0.3);
