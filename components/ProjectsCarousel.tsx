@@ -80,7 +80,7 @@ export default function ProjectsCarousel({
           aria-label={controls.previousAria}
           title={controls.previousLabel}
           disabled={!canGoBack}
-          className={`inline-flex h-9 w-9 items-center justify-center rounded-full border border-[var(--border-soft)] bg-[var(--control-bg)] text-text-muted transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand/60 ${
+          className={`inline-flex h-9 w-9 items-center justify-center rounded-full border border-[var(--border-soft)] bg-[var(--control-bg)] text-text-primary transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand/60 ${
             canGoBack ? 'hover:bg-[var(--control-bg-hover)]' : 'cursor-not-allowed opacity-40'
           }`}
         >
@@ -107,7 +107,7 @@ export default function ProjectsCarousel({
           aria-label={controls.nextAria}
           title={controls.nextLabel}
           disabled={!canGoForward}
-          className={`inline-flex h-9 w-9 items-center justify-center rounded-full border border-[var(--border-soft)] bg-[var(--control-bg)] text-text-muted transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand/60 ${
+          className={`inline-flex h-9 w-9 items-center justify-center rounded-full border border-[var(--border-soft)] bg-[var(--control-bg)] text-text-primary transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand/60 ${
             canGoForward ? 'hover:bg-[var(--control-bg-hover)]' : 'cursor-not-allowed opacity-40'
           }`}
         >

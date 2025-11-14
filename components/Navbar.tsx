@@ -83,7 +83,7 @@ export default function Navbar() {
             onClick={toggleTheme}
             aria-label={dictionary.navbar.themeToggle.ariaLabel}
             aria-pressed={isDark}
-            className="inline-flex items-center gap-2 rounded-full border border-[var(--border-soft)] bg-[var(--control-bg)] px-3 py-1.5 text-xs font-medium text-text-muted transition hover:bg-[var(--control-bg-hover)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand/60"
+            className="inline-flex items-center gap-2 rounded-full border border-[var(--border-soft)] bg-[var(--control-bg)] px-3 py-1.5 text-xs font-medium text-text-primary transition hover:bg-[var(--control-bg-hover)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand/60"
           >
             {isDark ? icons.moon : icons.sun}
             <span aria-hidden className="hidden text-xs sm:inline">
