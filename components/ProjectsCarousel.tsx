@@ -72,7 +72,7 @@ export default function ProjectsCarousel({
   const canGoForward = activeIndex < projects.length - 1
 
   return (
-    <div className="relative pb-4">
+    <div className="relative pb-6">
       <div className="flex items-center justify-end gap-2 pb-3">
         <button
           type="button"
@@ -131,7 +131,7 @@ export default function ProjectsCarousel({
       </div>
 
       <div className="relative">
-        <DraggableX onScroll={handleScroll} className="flex snap-x snap-mandatory gap-6 pb-4 pr-4">
+        <DraggableX onScroll={handleScroll} className="flex snap-x snap-mandatory gap-6 pb-6 pr-4">
           {projects.map((p, index) => {
             const statusLabel = dictionary.projectStatusLabels[p.status]
 
@@ -140,7 +140,7 @@ export default function ProjectsCarousel({
                 key={`${p.slug}-${locale}`}
                 id={`${baseId}-card-${index}`}
                 data-project-index={index}
-                className="h-[420px] w-[390px] shrink-0 snap-start"
+                className="h-[504px] w-[390px] shrink-0 snap-start"
               >
                 <ProjectCard
                   slug={p.slug}
