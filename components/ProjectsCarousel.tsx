@@ -21,7 +21,7 @@ export default function ProjectsCarousel({
   projects: Project[]
   controls: CarouselControls
 }) {
-  const { locale } = useLocaleContext()
+  const { locale, dictionary } = useLocaleContext()
   const [activeIndex, setActiveIndex] = useState(0)
   const [progress, setProgress] = useState(0)
   const baseId = useId()
@@ -132,16 +132,30 @@ export default function ProjectsCarousel({
 
       <div className="relative">
         <DraggableX onScroll={handleScroll} className="flex snap-x snap-mandatory gap-5 pb-3 pr-4">
-          {projects.map((p, index) => (
+          {projects.map((p, index) => {
+            const statusLabel = dictionary.projectStatusLabels[p.status]
+
+            return (
             <div
               key={`${p.slug}-${locale}`}
               id={`${baseId}-card-${index}`}
               data-project-index={index}
               className="h-[240px] w-[300px] shrink-0 snap-start"
             >
-              <ProjectCard {...p} locale={locale} slug={p.slug} />
+              <ProjectCard
+                slug={p.slug}
+                title={p.title}
+                description={p.description}
+                tools={p.tools}
+                href={p.href}
+                logo={p.logo}
+                status={p.status}
+                statusLabel={statusLabel}
+                locale={locale}
+              />
             </div>
-          ))}
+            )
+          })}
         </DraggableX>
         <div
           aria-hidden="true"

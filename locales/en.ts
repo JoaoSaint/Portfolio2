@@ -77,6 +77,7 @@ const en: Translation = {
       logo: '/logos/sentinela.png',
       cover: '/logos/sentinela.png',
       content: 'Monitoring hub with remote control and detailed reporting.',
+      status: 'in-progress',
     },
     {
       slug: 'receita-diaria',
@@ -84,6 +85,7 @@ const en: Translation = {
       description: 'Power BI dashboard fed by automated CSV ingestion.',
       tools: ['Power BI', 'Power Query', 'DAX'],
       content: 'Consolidates revenue sources and benchmarks performance against goals.',
+      status: 'completed',
     },
     {
       slug: 'simulador-proposta',
@@ -91,8 +93,14 @@ const en: Translation = {
       description: 'Python simulation engine covering renewal scenarios.',
       tools: ['Python', 'Pandas'],
       content: 'Business rules automated with ready-to-use outputs for BI.',
+      status: 'planning',
     },
   ],
+  projectStatusLabels: {
+    planning: 'Planning',
+    'in-progress': 'In development',
+    completed: 'Completed',
+  },
   projectControls: {
     previousLabel: 'Previous',
     nextLabel: 'Next',

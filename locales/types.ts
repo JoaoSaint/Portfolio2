@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import type { Locale } from '@/lib/i18n/config'
-import type { Project, SkillCategory, TimelineItem } from '@/lib/i18n/content-types'
+import type { Project, ProjectStatus, SkillCategory, TimelineItem } from '@/lib/i18n/content-types'
 
 export interface Translation {
   metadata: Metadata
@@ -39,6 +39,7 @@ export interface Translation {
     contacts: string
   }
   projects: Project[]
+  projectStatusLabels: Record<ProjectStatus, string>
   projectControls: {
     previousLabel: string
     nextLabel: string

@@ -2,6 +2,16 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import type { Locale } from '@/lib/i18n/config'
+import type { ProjectStatus } from '@/lib/i18n/content-types'
+
+export const PROJECT_STATUS_STYLES: Record<ProjectStatus, string> = {
+  planning:
+    'border-amber-200 bg-amber-50 text-amber-800 dark:border-amber-400/50 dark:bg-amber-500/10 dark:text-amber-200',
+  'in-progress':
+    'border-sky-200 bg-sky-50 text-sky-800 dark:border-sky-400/50 dark:bg-sky-500/10 dark:text-sky-200',
+  completed:
+    'border-emerald-200 bg-emerald-50 text-emerald-800 dark:border-emerald-400/50 dark:bg-emerald-500/10 dark:text-emerald-200',
+}
 
 interface ProjectProps {
   slug?: string
@@ -10,10 +20,22 @@ interface ProjectProps {
   tools?: string[]
   href?: string
   logo?: string
+  status: ProjectStatus
+  statusLabel: string
   locale: Locale
 }
 
-export default function ProjectCard({ slug, title, description, tools = [], href, logo, locale }: ProjectProps) {
+export default function ProjectCard({
+  slug,
+  title,
+  description,
+  tools = [],
+  href,
+  logo,
+  status,
+  statusLabel,
+  locale,
+}: ProjectProps) {
   const internal = slug ? `/${locale}/projects/${slug}` : undefined
   const url = internal || href || '#'
   const isExternal = !internal && url.startsWith('http')
@@ -25,8 +47,16 @@ export default function ProjectCard({ slug, title, description, tools = [], href
   return (
     <Wrapper
       {...wrapperProps}
-      className="group block h-full rounded-2xl border border-[var(--border-soft)] bg-surface-1/70 p-5 transition hover:border-[var(--border-strong)] hover:bg-surface-2/60"
+      className="group relative block h-full rounded-2xl border border-[var(--border-soft)] bg-surface-1/70 p-5 transition hover:border-[var(--border-strong)] hover:bg-surface-2/60"
     >
+      <span
+        className={`absolute right-5 top-5 inline-flex items-center rounded-full border px-2 py-1 text-xs font-medium ${
+          PROJECT_STATUS_STYLES[status]
+        }`}
+        aria-label={statusLabel}
+      >
+        {statusLabel}
+      </span>
       <div className="flex h-full flex-col gap-3">
         <div className="flex items-start gap-4">
           {logo ? (

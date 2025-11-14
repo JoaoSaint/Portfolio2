@@ -1,3 +1,5 @@
+export type ProjectStatus = 'planning' | 'in-progress' | 'completed'
+
 export type Project = {
   slug: string
   title: string
@@ -7,6 +9,7 @@ export type Project = {
   logo?: string
   cover?: string
   content?: string
+  status: ProjectStatus
 }
 
 export type SkillLevel = 1 | 2 | 3 | 4 | 5
