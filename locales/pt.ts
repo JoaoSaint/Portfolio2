@@ -32,8 +32,8 @@ const pt: Translation = {
     language: {
       label: 'Idioma',
       options: {
-        pt: 'Português',
-        en: 'English',
+        pt: 'PT-BR',
+        en: 'EN-US',
       },
     },
   },

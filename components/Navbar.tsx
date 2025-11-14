@@ -1,7 +1,7 @@
 // components/Navbar.tsx
 'use client'
 
-import { Suspense, useEffect, useState } from 'react'
+import { Suspense, useEffect, useMemo, useState } from 'react'
 import Link from 'next/link'
 import { useTheme } from '@/components/theme-provider'
 import LanguageSwitcher from '@/components/LanguageSwitcher'
@@ -41,10 +41,14 @@ export default function Navbar() {
     ? dictionary.navbar.themeToggle.dark
     : dictionary.navbar.themeToggle.light
 
-  const languageOptions = Object.entries(dictionary.navbar.language.options).map(([value, label]) => ({
-    value: value as Locale,
-    label,
-  }))
+  const languageOptions = useMemo(
+    () =>
+      Object.entries(dictionary.navbar.language.options).map(([value, optionLabel]) => ({
+        value: value as Locale,
+        label: optionLabel,
+      })),
+    [dictionary.navbar.language.options],
+  )
 
   return (
     <header
@@ -70,7 +74,7 @@ export default function Navbar() {
             </li>
           ))}
         </ul>
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2 sm:gap-3">
           <Suspense fallback={null}>
             <LanguageSwitcher label={dictionary.navbar.language.label} options={languageOptions} />
           </Suspense>
