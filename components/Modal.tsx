@@ -42,7 +42,7 @@ export default function Modal({
         <div className="mt-6 flex justify-end">
           <button
             onClick={onClose}
-            className="rounded-xl border border-[var(--border-soft)] px-3 py-1.5 text-sm text-text-muted transition hover:bg-[var(--control-bg)]"
+            className="rounded-xl border border-[var(--border-soft)] px-3 py-1.5 text-sm text-text-primary transition hover:bg-[var(--control-bg)]"
           >
             {closeLabel}
           </button>

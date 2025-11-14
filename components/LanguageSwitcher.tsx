@@ -75,7 +75,7 @@ export default function LanguageSwitcher({
       aria-label={label}
       aria-pressed={currentOption ? currentOption.value === options[0]?.value : false}
       onClick={handleClick}
-      className="inline-flex items-center gap-2 rounded-full border border-[var(--border-soft)] bg-[var(--control-bg)] px-3 py-1.5 text-xs font-semibold text-text-muted transition hover:bg-[var(--control-bg-hover)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand/60"
+      className="inline-flex items-center gap-2 rounded-full border border-[var(--border-soft)] bg-[var(--control-bg)] px-3 py-1.5 text-xs font-semibold text-text-primary transition hover:bg-[var(--control-bg-hover)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand/60"
     >
       <span className="sr-only">{label}</span>
       <span aria-hidden className="flex items-center gap-1">
