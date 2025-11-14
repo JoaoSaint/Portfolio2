@@ -77,6 +77,7 @@ const pt: Translation = {
       logo: '/logos/sentinela.png',
       cover: '/logos/sentinela.png',
       content: 'Orquestrador com monitoramento e controle remoto.',
+      status: 'in-progress',
     },
     {
       slug: 'receita-diaria',
@@ -84,6 +85,7 @@ const pt: Translation = {
       description: 'Dashboard com Power BI e ingestão automatizada de CSVs.',
       tools: ['Power BI', 'Power Query', 'DAX'],
       content: 'Consolida fontes de receita e compara com metas.',
+      status: 'completed',
     },
     {
       slug: 'simulador-proposta',
@@ -91,8 +93,14 @@ const pt: Translation = {
       description: 'Motor de simulação em Python para cenários de renovação.',
       tools: ['Python', 'Pandas'],
       content: 'Regras de negócio + saídas para BI.',
+      status: 'planning',
     },
   ],
+  projectStatusLabels: {
+    planning: 'Em planejamento',
+    'in-progress': 'Em desenvolvimento',
+    completed: 'Finalizado',
+  },
   projectControls: {
     previousLabel: 'Anterior',
     nextLabel: 'Próximo',

@@ -7,6 +7,7 @@ import Footer from '@/components/Footer'
 import { getProjects } from '@/data/projects'
 import { getDictionary } from '@/locales'
 import { isLocale, locales, type Locale } from '@/lib/i18n/config'
+import { PROJECT_STATUS_STYLES } from '@/components/ProjectCard'
 
 export function generateStaticParams() {
   return locales.flatMap((locale) => getProjects(locale).map((project) => ({ locale, slug: project.slug })))
@@ -48,6 +49,8 @@ export default async function ProjectDetail({ params }: { params: Promise<{ loca
     notFound()
   }
 
+  const statusLabel = dictionary.projectStatusLabels[project.status]
+
   return (
     <>
       <Navbar />
@@ -56,6 +59,16 @@ export default async function ProjectDetail({ params }: { params: Promise<{ loca
           {dictionary.projectPage.backLabel}
         </Link>
         <h1 className="mt-2 text-3xl font-bold tracking-tight text-text-primary">{project.title}</h1>
+        {statusLabel && (
+          <span
+            className={`mt-4 inline-flex items-center rounded-full border px-2 py-1 text-xs font-medium ${
+              PROJECT_STATUS_STYLES[project.status]
+            }`}
+            aria-label={statusLabel}
+          >
+            {statusLabel}
+          </span>
+        )}
         <p className="mt-2 text-text-muted">{project.description}</p>
         {project.cover && (
           <div className="relative mt-6 h-56 w-full overflow-hidden rounded-2xl border border-[var(--border-soft)] bg-surface-1/70">
